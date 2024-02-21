@@ -40,7 +40,7 @@ with
         environment,
         order_class,
         referrer,
-        cast(quote.slippageBips as integer) as slippage_bips,
+        COALESCE(cast(quote.slippageBips as integer), cast(quote.slippageBps as integer)) as slippage_bips,
         utm,
         utm.utmSource as utm_source,
         utm.utmMedium as utm_medium,
